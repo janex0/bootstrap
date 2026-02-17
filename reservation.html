@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="sl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rezervacija — Festival hrane 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="https://images.unsplash.com/photo-1555993539-1732d5a6b1f7?q=80&w=48&auto=format&fit=crop&ixlib=rb-4.0.3&s=0" alt="logo" class="rounded-circle me-2" width="40" height="40">
+          Festival hrane 2025
+        </a>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Domov</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">O festivalu</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Kontakt</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reservation.html">Rezervacija</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1>Rezervirajte mizo</h1>
+          <p>Izpolnite obrazec in potrdili vam bomo rezervacijo po elektronski pošti.</p>
+          <form id="reservationFormPage" novalidate>
+            <div class="mb-3">
+              <label for="rname" class="form-label">Ime in priimek</label>
+              <input type="text" id="rname" class="form-control" required>
+              <div class="invalid-feedback">Prosimo vnesite ime.</div>
+            </div>
+            <div class="mb-3">
+              <label for="remail" class="form-label">Email</label>
+              <input type="email" id="remail" class="form-control" required>
+              <div class="invalid-feedback">Prosimo vnesite veljaven email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="rpeople" class="form-label">Število oseb</label>
+              <select id="rpeople" class="form-select" required>
+                <option value="">Izberi...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5+</option>
+              </select>
+              <div class="invalid-feedback">Izberite število oseb.</div>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label for="rdate" class="form-label">Datum</label>
+                <input type="date" id="rdate" class="form-control" required>
+                <div class="invalid-feedback">Prosimo izberite datum.</div>
+              </div>
+              <div class="col-6">
+                <label for="rtime" class="form-label">Ura</label>
+                <input type="time" id="rtime" class="form-control" required>
+                <div class="invalid-feedback">Prosimo izberite uro.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Pošlji rezervacijo</button>
+            <div id="reservationAlert" class="alert mt-3 d-none" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="text-center text-md-start mb-2 mb-md-0">© <span id="year"></span> Festival hrane 2025</div>
+        <div>
+          <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-3 fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function(){
+        const form = document.getElementById('reservationFormPage');
+        const alertBox = document.getElementById('reservationAlert');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          if(!form.checkValidity()){ form.classList.add('was-validated'); return; }
+          alertBox.classList.remove('d-none');
+          alertBox.classList.add('alert','alert-success');
+          alertBox.textContent = 'Hvala! Rezervacija je bila sprejeta.';
+          form.reset();
+          form.classList.remove('was-validated');
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+/* Custom styles for Festival hrane 2025 */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.hero-img { height: 60vh; object-fit: cover; }
+.carousel-caption { bottom: 20%; left: 5%; right: auto; }
+.caption-overlay { background: rgba(0,0,0,0.35); padding: 1.25rem; border-radius: .5rem; }
+@media(min-width:1200px){ .hero-img { height: 75vh; } }
+
+/* Standardize card image heights */
+.card-img-top { height: 300px; object-fit: cover; }
+
+/* Small tweaks for footer icons */
+footer .bi { vertical-align: -.125em; }

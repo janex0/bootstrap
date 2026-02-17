@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="sl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt — Festival hrane 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="https://images.unsplash.com/photo-1555993539-1732d5a6b1f7?q=80&w=48&auto=format&fit=crop&ixlib=rb-4.0.3&s=0" alt="logo" class="rounded-circle me-2" width="40" height="40">
+          Festival hrane 2025
+        </a>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Domov</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">O festivalu</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contacts.html">Kontakt</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Rezervacija</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <h2>Kontakt</h2>
+          <p>Če imate vprašanja ali želite sodelovati, nas kontaktirajte:</p>
+          <p><i class="bi bi-geo-alt-fill me-2"></i>Ulica 1, 1000 Ljubljana</p>
+          <p><i class="bi bi-telephone-fill me-2"></i>+386 1 234 5678</p>
+          <p><i class="bi bi-envelope-fill me-2"></i>info@festivalhrane.si</p>
+
+          <h3 class="mt-4">Pošljite sporočilo</h3>
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label for="cname" class="form-label">Ime in priimek</label>
+              <input type="text" id="cname" class="form-control" required>
+              <div class="invalid-feedback">Prosimo vnesite ime.</div>
+            </div>
+            <div class="mb-3">
+              <label for="cemail" class="form-label">Email</label>
+              <input type="email" id="cemail" class="form-control" required>
+              <div class="invalid-feedback">Prosimo vnesite veljaven email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Sporočilo</label>
+              <textarea id="message" class="form-control" rows="4" required></textarea>
+              <div class="invalid-feedback">Prosimo vnesite sporočilo.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Pošlji</button>
+            <div id="contactAlert" class="alert mt-3 d-none" role="alert"></div>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <h2>Lokacija</h2>
+          <p>Pridite in nas obiščite na prizorišču festivala.</p>
+          <div class="ratio ratio-16x9 mb-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2740.123456789!2d14.5057513157441!3d46.05108097911745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476536b0b9b6e6f1%3A0x8d1a2a2a2a2a2a2a!2sPre%C5%A1ernov%20trg%2C%20Ljubljana!5e0!3m2!1ssi!2s!4v1690000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <h3>Delovni čas</h3>
+          <p>Pon–Ne: 10:00–22:00</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="text-center text-md-start mb-2 mb-md-0">© <span id="year"></span> Festival hrane 2025</div>
+        <div>
+          <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-3 fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Simple contact form handling
+      (function(){
+        const form = document.getElementById('contactForm');
+        const alertBox = document.getElementById('contactAlert');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          if(!form.checkValidity()){ form.classList.add('was-validated'); return; }
+          alertBox.classList.remove('d-none');
+          alertBox.classList.add('alert','alert-success');
+          alertBox.textContent = 'Hvala! Vaše sporočilo je poslano.';
+          form.reset();
+          form.classList.remove('was-validated');
+        });
+      })();
+    </script>
+  </body>
+</html>
